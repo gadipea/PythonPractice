@@ -1,4 +1,4 @@
 # PythonPractice
-##CountVowelSubStri
-##permutations of a number
+## CountVowelSubStrings
+## Permutations of a number
 ##
