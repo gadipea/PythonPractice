@@ -1,79 +1,15 @@
 
-
-def permutations(lst):
-    print("Starting List",lst)
-    if len(lst) == 0:
-        print("Ending with Empty List",lst)
+def permutations(array):
+    if len(array) == 1:
+        return [array]
+    if len(array) == 0:
         return []
-    if len(lst) == 1:
-        print("Last one List",lst)
-        return [lst]
-    l=[]
-    for i in range(len(lst)):
-        print("Progressing List with Index :",i)
-        m=lst[i]
-        print("First Elemet considered",m)
-        remLst = lst[:i] + lst[i+1:]
-        print("RemaingListElemets",lst[:i],lst[i+1:])
-        print("RemaingList",remLst)
-        perm=permutations(remLst)
-        print("Permutations of remaing list",perm)
-        for p in perm:
-            print("Elemets adding are",m,p)
-            l.append([m]+p)
-            print("List Made is",l)
-    return l
+    out = []
+    for i in range(len(array)):
+        for p in permutations(array[:i] + array[i + 1:]):
+            out.append([array[i]] + p)
+    return out
 
 
-
-if __name__=="__main__":
-    array=list(map(int,input().split()))
-    print(permutations(array))
-
-
-
-
-
-
-
-
-
-
-
-# # returning list with lists of  first element and others
-
-# lis=[1,2,3]
-
-# out=[]
-
-# for i in list:
-#     out.append(0,others)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+if __name__ == "__main__":
+    print(permutations(list(map(int, input().split()))))
